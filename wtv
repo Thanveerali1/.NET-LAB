@@ -1,0 +1,23 @@
+// Models/Student.cs
+using System;
+
+namespace StudentWebAPI.Models
+{
+    public class Student
+    {
+        public int Id { get; set; }
+        public string Name { get; set; } = string.Empty;
+
+        // "Class" is a C# keyword, so use ClassName
+        public string ClassName { get; set; } = string.Empty;
+
+        // Marks (assume 0-100)
+        public int Cn { get; set; }    // Computer Networks
+        public int Ada { get; set; }   // Advanced Data Algorithms (or ADA subject)
+        public int Ml { get; set; }    // Machine Learning
+
+        // Helpful computed properties
+        public int Total => Cn + Ada + Ml;
+        public double Percentage => Math.Round((Total / 300.0) * 100, 2);
+    }
+}
